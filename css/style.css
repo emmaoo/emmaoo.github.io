@@ -836,6 +836,7 @@ footer[role="contentinfo"] a:hover {
 	margin-bottom: 1.714285714rem;
 }
 .entry-header .entry-title {
+	color: rgb(81, 165, 168);
 	font-size: 20px;
 	font-size: 1.428571429rem;
 	line-height: 1.2;
