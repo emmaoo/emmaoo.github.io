@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="给你的仓库起一个名字1yourname.github.io
+安装hexo1$ npm install hexo-cli -g
+初始化博客1$ hexo init xxxx
+在本地启动服务1$ hexo serve
+访问http://localhost:4000
+在config.yml中配置12345" />
+  
 
   
   
@@ -11,14 +18,33 @@
   
   
   
-  <title>Emmaの爱码之旅</title>
+  <title>搭建Hexo博客 | Emmaの爱码之旅</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Emmaの爱码之旅">
-<meta property="og:url" content="https://emmaoo.github.io/index.html">
+  <meta name="description" content="给你的仓库起一个名字1yourname.github.io
+安装hexo1$ npm install hexo-cli -g
+初始化博客1$ hexo init xxxx
+在本地启动服务1$ hexo serve
+访问http://localhost:4000
+在config.yml中配置12345deploy:  type: git//中间要写个空格  repo: &amp;lt;repository">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建Hexo博客">
+<meta property="og:url" content="https://emmaoo.github.io/2016/07/18/hello-world/index.html">
 <meta property="og:site_name" content="Emmaの爱码之旅">
+<meta property="og:description" content="给你的仓库起一个名字1yourname.github.io
+安装hexo1$ npm install hexo-cli -g
+初始化博客1$ hexo init xxxx
+在本地启动服务1$ hexo serve
+访问http://localhost:4000
+在config.yml中配置12345deploy:  type: git//中间要写个空格  repo: &amp;lt;repository">
+<meta property="og:updated_time" content="2016-12-18T14:45:14.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Emmaの爱码之旅">
+<meta name="twitter:title" content="搭建Hexo博客">
+<meta name="twitter:description" content="给你的仓库起一个名字1yourname.github.io
+安装hexo1$ npm install hexo-cli -g
+初始化博客1$ hexo init xxxx
+在本地启动服务1$ hexo serve
+访问http://localhost:4000
+在config.yml中配置12345deploy:  type: git//中间要写个空格  repo: &amp;lt;repository">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -59,122 +85,15 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-    <article id="post-fs" class="post-fs post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
         
         
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/09/18/fs/">node之fs</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="/2016/09/18/fs/#comments" class="article-comment-link">评论</a>
-            
-            <a data-url="https://emmaoo.github.io/2016/09/18/fs/" data-id="ciwurlxn60001lgjk7bhf39ci" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
-            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h3 id="可读流方法"><a href="#可读流方法" class="headerlink" title="可读流方法"></a>可读流方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var rs = fs.createReadStream(&apos;./name.txt&apos;,&#123;highWaterMark:1&#125;);</div><div class="line">rs.on(&apos;data&apos;,function(data)&#123;console.log(data)&#125;);//data是Buffer或者是字符串</div><div class="line">rs.on(&apos;end&apos;,function()&#123;console.log(&apos;读完了&apos;)&#125;);</div><div class="line">rs.on(&apos;err&apos;,function(err)&#123;console.log(err)&#125;);</div><div class="line">rs.parse();//暂停</div><div class="line">rs.resume();//继续</div></pre></td></tr></table></figure>
-<h3 id="可写流方法"><a href="#可写流方法" class="headerlink" title="可写流方法"></a>可写流方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var ws = fs.creatWriteStream(&apos;./name.txt&apos;,&#123;highWaterMark:1&#125;);</div><div class="line">ws.write(1+&apos;&apos;,function()&#123;console.log(&apos;写完了&apos;)&#125;);//写入的是Buffer或者是字符串</div><div class="line">ws.end();//如果写参数默认调用的就是write方法</div><div class="line">ws.on(&apos;drain&apos;,function()&#123;&#125;);//写入之后，再次继续写入</div></pre></td></tr></table></figure>
-<h5 id="pipe用法"><a href="#pipe用法" class="headerlink" title="pipe用法"></a>pipe用法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">function copy(source,target) &#123;</div><div class="line">   var rs = fs.createReadStream(source);</div><div class="line">   var ws = fs.createWriteStream(target);</div><div class="line">   rs.pipe(ws);//异步方法，读一点写一点，可以读大文件</div><div class="line">&#125;</div><div class="line">copy(&apos;./name.txt&apos;,&apos;./age.txt&apos;);</div></pre></td></tr></table></figure>
-<h3 id="request是可读流，response是可写流"><a href="#request是可读流，response是可写流" class="headerlink" title="request是可读流，response是可写流"></a>request是可读流，response是可写流</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http.creatServer(function(request,response)&#123;&#125;)</div></pre></td></tr></table></figure>
-<h4 id="要注意的是"><a href="#要注意的是" class="headerlink" title="要注意的是"></a>要注意的是</h4><p> 后端将data传到前端需要把数据做转换转成字符串   JSON.stringify(data);<br> 前端拿到数据需要把JSON格式的字符串转成JSON数据 JSON.parse(data);</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/09/18/fs/">
-    <time datetime="2016-09-17T16:00:00.000Z" class="entry-date">
-        2016-09-18
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-  
-    <article id="post-flexbox" class="post-flexbox post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/07/20/flexbox/">CSS3之flexbox（弹性盒模型）</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="/2016/07/20/flexbox/#comments" class="article-comment-link">评论</a>
-            
-            <a data-url="https://emmaoo.github.io/2016/07/20/flexbox/" data-id="ciwurlxm80000lgjkms6irohk" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
-            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="flexbox的主要属性"><a href="#flexbox的主要属性" class="headerlink" title="flexbox的主要属性"></a>flexbox的主要属性</h2><h3 id="用于父类容器身上"><a href="#用于父类容器身上" class="headerlink" title="用于父类容器身上"></a>用于父类容器身上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">display: flex / inline flex &lt;!--给元素添加弹性盒模型属性--&gt;</div><div class="line">flex-direction: row / row reverse / column / column-reverse &lt;!--确定主轴方向--&gt;</div><div class="line">flex-wrap: nowrap / wrap / wrap-reverse &lt;!--子元素超出父元素是否换行--&gt;</div><div class="line">flex-flow: flex-direction | flex-wrap &lt;!--上两种方法的复合写法--&gt;</div><div class="line">justify-content: flex-start / flex-end / center / space-between / space-around &lt;!--确定在主轴方向上的对齐方式--&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://ww4.sinaimg.cn/large/c56a7e1bjw9fasnspsbhfj20b406kdg8.jpg" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-content: flex-start / flex-end / center / space-between / spance-around / stretch&lt;!--用来处理交叉轴空白空间--&gt;</div></pre></td></tr></table></figure></p>
-<p><img src="http://ww1.sinaimg.cn/large/c56a7e1bjw9fasnv4o16fj208c06rmxn.jpg" alt=""></p>
-<h3 id="用于子类容器身上"><a href="#用于子类容器身上" class="headerlink" title="用于子类容器身上"></a>用于子类容器身上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">align-items: flex-start / flex-end / center / baseline / stretch &lt;!--确定在交叉轴上的对齐方式--&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://ww2.sinaimg.cn/large/c56a7e1bjw9fasnz3r6r5j209606st92.jpg" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">align-self: flex-start / flex-end / center / baseline / stretch/auto &lt;!--覆写容器的指定对其方式--&gt;</div><div class="line">order:-1/2/1/... &lt;!--用整数值来定义排列顺序--&gt;</div><div class="line"></div><div class="line">flex-grow:0/... &lt;!--设置或检索弹性盒子的扩展比例--&gt;</div><div class="line">flex-shrink:1/... &lt;!--设置或检索弹性盒子的收缩比例--&gt;</div><div class="line">flex-basis:auto/0%/... &lt;!--默认基准值--&gt;</div><div class="line">flex:复合属性</div></pre></td></tr></table></figure></p>
-<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2><p><img src="http://ww1.sinaimg.cn/large/c56a7e1bjw1fasnbaojncj20mk0n5wgr.jpg" alt=""></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/07/20/flexbox/">
-    <time datetime="2016-07-19T16:00:00.000Z" class="entry-date">
-        2016-07-20
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-  
-    <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/07/18/hello-world/">搭建Hexo博客</a>
+    <h1 class="entry-title article-title">
+      搭建Hexo博客
     </h1>
   
 
@@ -221,11 +140,38 @@
 </article>
 
 
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/07/20/flexbox/" rel="prev"><span class="meta-nav">←</span> CSS3之flexbox（弹性盒模型）</a></span>
+    
+    
+</nav><!-- .nav-single -->
 
 
 
-  
-  
+
+
+
+<section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-hello-world" data-title="搭建Hexo博客" data-url="https://emmaoo.github.io/2016/07/18/hello-world/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:'emmaoo'};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</section>
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">
