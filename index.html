@@ -78,18 +78,18 @@
             
             <a href="/2016/11/01/terminal/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/11/01/terminal/" data-id="cixb8ru910009l0jke1mq1c5s" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/11/01/terminal/" data-id="cixb8zv5o0005pgjklyixd5cw" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="1-pc端项目"><a href="#1-pc端项目" class="headerlink" title="1.pc端项目"></a>1.pc端项目</h2><p>（1）（响应式布局页面）做完的pc项目，大小改变页面也要跟着调整<br>（2）（只在pc端访问的项目）随着屏幕的改变不跟着改 移动端以一个新的项目去做</p>
-<h2 id="2-移动端页面（不需要考虑到PC的时候进行响应式处理）"><a href="#2-移动端页面（不需要考虑到PC的时候进行响应式处理）" class="headerlink" title="2.移动端页面（不需要考虑到PC的时候进行响应式处理）"></a>2.移动端页面（不需要考虑到PC的时候进行响应式处理）</h2><p>（1）这个页面可能是在手机浏览器中运行的<br>（2）在微信中运行（微信的二次开发）<br>（3）在自己公司内部或者别的公司开发的app中运行</p>
+        <h3 id="1-pc端项目"><a href="#1-pc端项目" class="headerlink" title="1.pc端项目"></a>1.pc端项目</h3><p>（1）（响应式布局页面）做完的pc项目，大小改变页面也要跟着调整<br>（2）（只在pc端访问的项目）随着屏幕的改变不跟着改 移动端以一个新的项目去做</p>
+<h3 id="2-移动端页面（不需要考虑到PC的时候进行响应式处理）"><a href="#2-移动端页面（不需要考虑到PC的时候进行响应式处理）" class="headerlink" title="2.移动端页面（不需要考虑到PC的时候进行响应式处理）"></a>2.移动端页面（不需要考虑到PC的时候进行响应式处理）</h3><p>（1）这个页面可能是在手机浏览器中运行的<br>（2）在微信中运行（微信的二次开发）<br>（3）在自己公司内部或者别的公司开发的app中运行</p>
 <p>总结：PC和移动端用一套 做响应式<br>     移动端自己用一套 做响应式适配不同的手机</p>
 <p>========================================================================<br>在PC端 html的宽度和浏览器的可视窗口的宽度保持一致<br>在移动端 html页面的宽度和手机浏览器的宽度没有什么关系，默认宽度都是980（1024）</p>
-<h2 id="问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右"><a href="#问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右" class="headerlink" title="问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右"></a>问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右</h2><p>=&gt;让移动端的html页面宽度和手机端的宽度保持一致<br>在头部要加这个标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;viewport&quot;</div><div class="line">          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右"><a href="#问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右" class="headerlink" title="问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右"></a>问题1：页面是默认980，手机只有320的宽度，想在手机上把页面看全，只能缩小3倍左右</h3><p>=&gt;让移动端的html页面宽度和手机端的宽度保持一致<br>在头部要加这个标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;meta name=&quot;viewport&quot;</div><div class="line">          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</div></pre></td></tr></table></figure></p>
 <p>这里的viewport指的是layout-viewport layout-viewport:布局视口</p>
 <table>
 <thead>
@@ -125,11 +125,11 @@
 </tr>
 </tbody>
 </table>
-<h2 id="问题2：子元素溢出"><a href="#问题2：子元素溢出" class="headerlink" title="问题2：子元素溢出"></a>问题2：子元素溢出</h2><p>=&gt;子元素的宽度最大100%<br>响应式布局开发方案</p>
-<h3 id="（1）流式布局法"><a href="#（1）流式布局法" class="headerlink" title="（1）流式布局法"></a>（1）流式布局法</h3><p> 正常的开发pc端，开发完后，开始缩小浏览器或者切换到手机端看效果，我们根据不同的设备，调整不同的样式（@media）<br> 移动端的话 宽度不能写死了</p>
+<h3 id="问题2：子元素溢出"><a href="#问题2：子元素溢出" class="headerlink" title="问题2：子元素溢出"></a>问题2：子元素溢出</h3><p>=&gt;子元素的宽度最大100%<br>响应式布局开发方案</p>
+<p>####（1）流式布局法<br> 正常的开发pc端，开发完后，开始缩小浏览器或者切换到手机端看效果，我们根据不同的设备，调整不同的样式（@media）<br> 移动端的话 宽度不能写死了</p>
 <p> pc+移动端公用一套项目，流式布局法值得信赖</p>
 <p>========================================================================<br> 单独移动端访问的项目，我们依然可以使用流式布局法，但是我们需要针对多套手机设备去一点点更改样式</p>
-<h3 id="（2）等比缩放布局"><a href="#（2）等比缩放布局" class="headerlink" title="（2）等比缩放布局"></a>（2）等比缩放布局</h3><p> 为了简单的话 我们最好能够做到：假设在640px的尺寸中，我们设定了相关样式，当页面的宽度变为320的时候，页面中所有元素的尺寸都跟着缩小一半，叫等比缩放布局</p>
+<p>####（2）等比缩放布局<br> 为了简单的话 我们最好能够做到：假设在640px的尺寸中，我们设定了相关样式，当页面的宽度变为320的时候，页面中所有元素的尺寸都跟着缩小一半，叫等比缩放布局</p>
 <p> 单位rem：相对单位，相对于页面根元素的字体大小html元素的字体大小来设定的</p>
 <p> 在写样式的时候，把所有的单位都改为rem，需要提前给html设置一个font-size值 一般是100px;以后页面的尺寸和当前不一样的时候我们看缩小多少或者是放大了多少 之前640（1rem=100px）现在的页面320（320/640*100px=1rem）<br> 这种方式只应用于移动端单独一套项目（rem不兼容）ie不兼容@media<br>既要引入以上代码又要引入一段JS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    document.documentElement.style.fontSize=document.documentElement.clientWidth/640*100+&apos;px&apos;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
 <p>很多公司仍然采用流式布局法</p>
@@ -174,7 +174,7 @@
             
             <a href="/2016/10/08/inherit/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/10/08/inherit/" data-id="cixb8ru8w0007l0jkqzzgue36" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/10/08/inherit/" data-id="cixb8zv500001pgjkbmvduprj" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -232,7 +232,7 @@
             
             <a href="/2016/09/18/fs/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/09/18/fs/" data-id="cixb8ru810001l0jk0no8ewpz" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/09/18/fs/" data-id="cixb8zv5c0003pgjk9uht0kus" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -284,7 +284,7 @@
             
             <a href="/2016/07/20/flexbox/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/07/20/flexbox/" data-id="cixb8ru7t0000l0jkfftojwx6" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/07/20/flexbox/" data-id="cixb8zv4p0000pgjkczsvjs2o" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -337,7 +337,7 @@
             
             <a href="/2016/07/18/hello-world/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/07/18/hello-world/" data-id="cixb8ru8r0006l0jknq2tthuz" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/07/18/hello-world/" data-id="cixb8zv5f0004pgjkpivyngo6" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
