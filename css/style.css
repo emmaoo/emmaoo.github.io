@@ -570,7 +570,7 @@ body {
 	font-size: 1rem;
 	font-family: Microsoft YaHei,  Helvetica, Arial, sans-serif;
 	text-rendering: optimizeLegibility;
-	color: rgb(0, 0, 0); /*Article & Widget Content*/
+	color: #404040; /*Article & Widget Content*/
 }
 body.custom-font-enabled {
 	font-family: Microsoft YaHei,  Helvetica, Arial, sans-serif;
