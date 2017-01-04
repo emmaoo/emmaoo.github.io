@@ -78,7 +78,7 @@
             
             <a href="/2016/11/10/webpack/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/11/10/webpack/" data-id="cixeqyofj00081gjkovvs2ven" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/11/10/webpack/" data-id="cixj1wat10003vkjkjdlxgp0m" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -103,26 +103,26 @@
 <h3 id="编写步骤"><a href="#编写步骤" class="headerlink" title="编写步骤"></a>编写步骤</h3><ol>
 <li>创建源码目录app文件夹,在里面创建一个入口文件index.js.然后通过此模块引入其它的模块。创建打包目录build文件夹,可以在里面创建。</li>
 <li><p>创建webpack配置文件，名称固定”webpack.config.js”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    //指定打包的入口文件</div><div class="line">    entry:&#123;</div><div class="line">        index:&apos;./app/index.js&apos;,</div><div class="line">        b:&apos;./app/b.js&apos;,</div><div class="line">    &#125;,</div><div class="line">    //输入文件和目录</div><div class="line">    output:&#123;</div><div class="line">        path:&apos;./build&apos;,</div><div class="line">        filename:&apos;[name].js&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">    //指定打包的入口文件</div><div class="line">    entry:&#123;</div><div class="line">        index:&apos;./app/index.js&apos;,</div><div class="line">        b:&apos;./app/b.js&apos;,</div><div class="line">    &#125;,</div><div class="line">    //输入文件和目录</div><div class="line">    output:&#123;</div><div class="line">        path:&apos;./build&apos;,</div><div class="line">        filename:&apos;[name].js&apos;//此处打包默认为main.js文件</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>全局安装webpack下，执行webpack命令的时候会在当前目录下面找webpack.config.js文件，然后进行打包。</p>
 </li>
 <li><p>本地安装webpack执行webpack,在package.json中编写一个脚本：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;build&quot;:&quot;webpack&quot;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p>在执行<code>npm run build</code>的时候会在当前目录的node_modules下面.bin目录下找webpack.cmd文件执行，也会在当前目录下面找webpack.config.js文件，然后打包输出 </p>
+<p>在执行<code>npm run build</code>的时候会在当前目录的node_modules下面.bin目录下找webpack.cmd文件执行，也会在当前目录下面找webpack.config.js文件，然后打包输出,打包文件必须先要执行run build。</p>
 </li>
 <li><p>使用es6时webpack不识别es6中的写法需要加载器帮助加载<br>注意：babel在安装时 全局安装babel-cli   本地安装babel-core</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-core babel-loader babel-preset-es2015 --save-dev</div></pre></td></tr></table></figure>
 </li>
-<li><p>在根目录下写入一个.babelrc的文件,指定babel将当前语言编写为es5。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;:[&quot;es2015&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>在根目录下写入一个.babelrc的文件,指定babel将当前语言编写为es5，如果使用react,需要写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;:[&quot;es2015&quot;,&quot;react&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在webpack.config.js中追加写入一下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">module:&#123;//模块加载设置</div><div class="line">        //加载器</div><div class="line">        loaders:[</div><div class="line">            &#123;</div><div class="line">                test:/\.js$/,</div><div class="line">                loader:&apos;babel-loader&apos;//loader可以省略</div><div class="line">            &#125;</div><div class="line">        ]</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>css代码webpack同样不能识别，需要相关加载器进行加载</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install css-loader style-loader --save-dev</div></pre></td></tr></table></figure>
 <p>同样在webpack.config.js中的module对象中的loader数组中追加写入一下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;//css文件用style-loader css-loader处理</div><div class="line">     test:/\.css$/,</div><div class="line">     loader:&apos;style!css&apos;//两个加载器可以省略-loader，并且用!连接</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;//css文件用style-loader css-loader处理</div><div class="line">     test:/\.css$/,</div><div class="line">     loader:&apos;style!css&apos;//两个加载器可以省略-loader，并且用!连接，而且顺序不能改变</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>图标图片等二进制文件用url-loader处理</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install url-loader file-loader --save-dev</div></pre></td></tr></table></figure>
@@ -164,6 +164,12 @@
 </ol>
 <ul>
 <li><p>在执行<code>npm run dev</code>时，网页就会自动打开，并且实时刷新，但是服务一旦停止，功能也就不能实现了。</p>
+<h3 id="同时打包两个项目"><a href="#同时打包两个项目" class="headerlink" title="同时打包两个项目"></a>同时打包两个项目</h3><p> 一个根目录下如果想同时打包两个项目，那么需要在文件夹下写入一个webpack.xxx.js将里面的文件目录改成需要的文件目录，并且在package.json文件中加入配置项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;build-xxx&quot;: &quot;webpack --config webpack.message.js&quot;,</div><div class="line">&quot;dev-xxx&quot;: &quot;webpack-dev-server --config webpack.message.js&quot;</div></pre></td></tr></table></figure>
+<p>执行时执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm run build-xxx</div><div class="line">npm run dev-xxx</div></pre></td></tr></table></figure>
+</li>
+<li><p>编译出的文件放在build文件夹下，我们需要的文件即 index.html 与其打包出来的js文件。</p>
 <p> 更多webpack教程请查看文档 : <a href="https://zhufengnodejs.github.io/doc/html/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack.html" target="_blank" rel="external">webpack进阶</a></p>
 </li>
 </ul>
@@ -207,7 +213,7 @@
             
             <a href="/2016/11/01/terminal/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/11/01/terminal/" data-id="cixeqyofg00071gjkshkt2dpz" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/11/01/terminal/" data-id="cixj1wat70004vkjkdmwt3nnk" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -303,7 +309,7 @@
             
             <a href="/2016/10/08/inherit/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/10/08/inherit/" data-id="cixeqyofb00061gjkq1c9jqw5" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/10/08/inherit/" data-id="cixj1wati0005vkjkcrisq9rq" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -361,7 +367,7 @@
             
             <a href="/2016/09/18/fs/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/09/18/fs/" data-id="cixeqyof500031gjkb52rc81z" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/09/18/fs/" data-id="cixj1wav0000fvkjkgb69l106" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -413,7 +419,7 @@
             
             <a href="/2016/07/20/flexbox/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/07/20/flexbox/" data-id="cixeqyoea00001gjk1eo8adln" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/07/20/flexbox/" data-id="cixj1wasd0001vkjknkvo9lw2" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -466,7 +472,7 @@
             
             <a href="/2016/07/18/hello-world/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/07/18/hello-world/" data-id="cixeqyof800041gjkangcqfd6" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/07/18/hello-world/" data-id="cixj1wars0000vkjkbuw0jhvk" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
