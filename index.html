@@ -61,6 +61,59 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-cache" class="post-cache post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/12/10/cache/">JS清除缓存的几种方式</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="/2016/12/10/cache/#comments" class="article-comment-link">评论</a>
+            
+            <a data-url="https://emmaoo.github.io/2016/12/10/cache/" data-id="ciywr776f0000tkjk1nf14xds" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h3 id="清理网站缓存的几种方法"><a href="#清理网站缓存的几种方法" class="headerlink" title="清理网站缓存的几种方法"></a>清理网站缓存的几种方法</h3><h4 id="meta方法"><a href="#meta方法" class="headerlink" title="meta方法"></a>meta方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//不缓存</div><div class="line">&lt;META HTTP-EQUIV=&quot;pragma&quot; CONTENT=&quot;no-cache&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;Cache-Control&quot; CONTENT=&quot;no-cache,must-revalidate&quot;&gt;</div><div class="line">&lt;META HTTP-EQUIV=&quot;expires&quot; CONTENT=&quot;0&quot;&gt;</div></pre></td></tr></table></figure>
+<h4 id="清理form表单的临时缓存"><a href="#清理form表单的临时缓存" class="headerlink" title="清理form表单的临时缓存"></a>清理form表单的临时缓存</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;body onLoad=&quot;javascript:document.yourFormName.reset()&quot;&gt;</div><div class="line">//一般不建议清理，但有时为了安全问题，需要清理一下</div></pre></td></tr></table></figure>
+<h4 id="jquery-ajax清除浏览器缓存"><a href="#jquery-ajax清除浏览器缓存" class="headerlink" title="jquery ajax清除浏览器缓存"></a>jquery ajax清除浏览器缓存</h4><h5 id="方法一：用ajax请求服务器最新文件，并加上请求头If-Modified-Since和Cache-Control"><a href="#方法一：用ajax请求服务器最新文件，并加上请求头If-Modified-Since和Cache-Control" class="headerlink" title="方法一：用ajax请求服务器最新文件，并加上请求头If-Modified-Since和Cache-Control"></a>方法一：用ajax请求服务器最新文件，并加上请求头If-Modified-Since和Cache-Control</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    url:&apos;www.github.com&apos;,</div><div class="line">    dataType:&apos;json&apos;,</div><div class="line">    data:&#123;&#125;,</div><div class="line">    beforeSend:function(xmlHttp)&#123;</div><div class="line">        xmlHttp.setRequestHeader(&quot;If-Modified-Since&quot;,&quot;0&quot;);</div><div class="line">        xmlHttp.setRequestHeader(&quot;Cache-Control&quot;,&quot;no-cache&quot;);</div><div class="line">    &#125;,</div><div class="line">    success:function(response)&#123;</div><div class="line">        //操作</div><div class="line">    &#125;，</div><div class="line">    async:false</div><div class="line">  &#125;)</div></pre></td></tr></table></figure>
+<h5 id="方法二：直接用cache-false"><a href="#方法二：直接用cache-false" class="headerlink" title="方法二：直接用cache:false"></a>方法二：直接用cache:false</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">    url:&apos;www.haorooms.com&apos;,</div><div class="line">    dataType:&apos;json&apos;,</div><div class="line">    data:&#123;&#125;,</div><div class="line">    cache:false, </div><div class="line">    ifModified :true ,</div><div class="line">    success:function(response)&#123;</div><div class="line">        //操作</div><div class="line">    &#125;</div><div class="line">    async:false</div><div class="line"> &#125;)</div></pre></td></tr></table></figure>
+<h5 id="方法三：用随机数，随机数也是避免缓存的一种很不错的方法！"><a href="#方法三：用随机数，随机数也是避免缓存的一种很不错的方法！" class="headerlink" title="方法三：用随机数，随机数也是避免缓存的一种很不错的方法！"></a>方法三：用随机数，随机数也是避免缓存的一种很不错的方法！</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">URL 参数后加上 &quot;?ran=&quot; + Math.random(); //当然这里参数 ran可以任意取了</div><div class="line">eg:</div><div class="line">&lt;script&gt; </div><div class="line">document.write(&quot;&lt;s&quot;+&quot;cript type=&apos;text/javascript&apos; src=&apos;/js/test.js?&quot;+Math.random()+&quot;&apos;&gt;&lt;/scr&quot;+&quot;ipt&gt;&quot;); </div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">其他的类似，只需在地址后加上+Math.random() </div><div class="line">注意：因为Math.random() 只能在Javascript 下起作用，故只能通过Javascript的调用才可以</div></pre></td></tr></table></figure>
+<h5 id="方法四：用时间戳，和随机数一样"><a href="#方法四：用时间戳，和随机数一样" class="headerlink" title="方法四：用时间戳，和随机数一样"></a>方法四：用时间戳，和随机数一样</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在 URL 参数后加上 &quot;?timestamp=&quot; + new Date().getTime()</div></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/10/cache/">
+    <time datetime="2016-12-09T16:00:00.000Z" class="entry-date">
+        2016-12-10
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+  
     <article id="post-server" class="post-server post type-post status-publish format-standard hentry">
     <!---->
 
@@ -78,7 +131,7 @@
             
             <a href="/2016/11/23/server/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/11/23/server/" data-id="cixoqdv0f00018gjk5rcjdawu" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/11/23/server/" data-id="ciywr777i0003tkjkzg972466" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -135,7 +188,7 @@
             
             <a href="/2016/11/10/webpack/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/11/10/webpack/" data-id="cixoqdv1t00098gjk43tb19bh" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/11/10/webpack/" data-id="ciywr778e0008tkjkckzjv16u" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -269,7 +322,7 @@
             
             <a href="/2016/11/01/terminal/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/11/01/terminal/" data-id="cixoqdv1n00088gjkds70t5to" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/11/01/terminal/" data-id="ciywr77800005tkjkznpjyye4" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -365,7 +418,7 @@
             
             <a href="/2016/10/08/inherit/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/10/08/inherit/" data-id="cixoqdv1d00058gjktizazoi5" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/10/08/inherit/" data-id="ciywr776y0001tkjk07836gmr" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -423,7 +476,7 @@
             
             <a href="/2016/09/18/fs/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/09/18/fs/" data-id="cixoqdv0x00038gjkgg8gcz3i" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/09/18/fs/" data-id="ciywr77am000ctkjkcs10lz4e" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -475,7 +528,7 @@
             
             <a href="/2016/07/20/flexbox/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/07/20/flexbox/" data-id="cixoqduzp00008gjkumav7tdu" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/07/20/flexbox/" data-id="ciywr777n0004tkjkt00supu6" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -528,7 +581,7 @@
             
             <a href="/2016/07/18/hello-world/#comments" class="article-comment-link">评论</a>
             
-            <a data-url="https://emmaoo.github.io/2016/07/18/hello-world/" data-id="cixoqdv1100048gjkhn36gno0" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
+            <a data-url="https://emmaoo.github.io/2016/07/18/hello-world/" data-id="ciywr77a00009tkjkfws8myf8" class="article-share-link bdsharebuttonbox" data-cmd="more">分享</a>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
@@ -593,6 +646,10 @@
       <ul>
         
           <li>
+            <a href="/2016/12/10/cache/">JS清除缓存的几种方式</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/23/server/">安装Linux服务器</a>
           </li>
         
@@ -608,10 +665,6 @@
             <a href="/2016/10/08/inherit/">JS中的继承</a>
           </li>
         
-          <li>
-            <a href="/2016/09/18/fs/">node之fs</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -621,7 +674,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/">webpack</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -630,7 +683,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
     </div>
   </aside>
 
